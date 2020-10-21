@@ -1,3 +1,6 @@
+// UBER assessment - Card Game
+// By: Ana Lizbeth Zermeño Torres
+
 #include <iostream>
 #include <vector>
 #include <ctime>
