@@ -7,9 +7,7 @@
 
 using namespace std;
 
-// global variables
-
-// store probability that already passed
+// store probability
 vector<int> prob;
 
 // store cards that were already picked from each type of card (Common, Rare, Epic, Legendary)
@@ -18,20 +16,8 @@ vector<int> rare;
 vector<int> epic;
 vector<int> legendary;
 
-
-bool alreadyPickedType(int card) {
-
-    for(int i = 0; i < prob.size(); i++){
-        if(prob[i] == card){
-            return true;
-        }
-    }
-
-    return false;
-}
-
+// function to verify if the number of card of a certain type have already been picked
 bool alreadyPickedCard(int card, int type) {
-
     if(type >= 1 && type <= 74) {
         for(int i = 0; i < common.size(); i++){
             if(common[i] == card) {
@@ -73,20 +59,12 @@ bool alreadyPickedCard(int card, int type) {
 
 void typeOfCard(){
 
-    srand(time(0));
-
     int type = (rand() % 100) + 1;
-
-    while(alreadyPickedType(type)){
-        type = (rand() % 100) + 1;
-    }
 
     prob.push_back(type);
 }
 
 // print the cards
-// first select the number of the card according to the type
-// then print the cards
 void selectCard(int type) {
 
  int card = 0;
@@ -140,6 +118,8 @@ void selectCard(int type) {
 
 int main() {
 
+    srand(time(0));
+
     // simulation of opening a pack of 5 cards;
     for(int i = 0; i < 5; i++){
         typeOfCard();
@@ -147,7 +127,6 @@ int main() {
 
     for(int i = 0; i < 5; i++){
         selectCard(prob[i]);
-        cout << prob[i];
     }
 
     cout << endl;
