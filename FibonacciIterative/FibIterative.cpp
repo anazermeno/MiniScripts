@@ -11,8 +11,8 @@ using namespace std;
             return fib2;
         }
         
-        if(N == 2) {
-            return fib2;
+        if(N == 0) {
+            return fib1;
         }
         
         for(int i = 1; i < N; i++) {
@@ -25,5 +25,7 @@ using namespace std;
     }
 
 int main() {
-    cout << fib(8);
+    for(int i = 0; i <= 10; i++) {
+        cout << fib(i) << " ";
+    }
 }
